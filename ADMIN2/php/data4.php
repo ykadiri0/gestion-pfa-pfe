@@ -1,0 +1,9 @@
+<?php
+
+$conn = mysqli_connect("localhost", "root", "", "pfa");
+    $result = mysqli_query($conn, "SELECT nom FROM `dossierpfe` WHERE filiere='" . $_GET["filiere"] . "'; ");
+$data = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $data[] = $row;
+}
+echo json_encode($data);
